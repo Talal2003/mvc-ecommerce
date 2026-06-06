@@ -3,8 +3,9 @@ using mvc_ecommerce.Data;
 using mvc_ecommerce.Models;
 using System.Diagnostics;
 
-namespace mvc_ecommerce.Controllers
+namespace mvc_ecommerce.Areas.User.Controllers
 {
+    [Area("User")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
