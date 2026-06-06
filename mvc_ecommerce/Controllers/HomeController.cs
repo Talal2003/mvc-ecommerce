@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using mvc_ecommerce.Data;
 using mvc_ecommerce.Models;
 using System.Diagnostics;
 
@@ -8,6 +9,7 @@ namespace mvc_ecommerce.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        ApplicationDbContext context = new ApplicationDbContext();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -15,6 +17,8 @@ namespace mvc_ecommerce.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.categories = context.Categories.ToList();
+            ViewBag.products = context.Products.ToList();
             return View();
         }
 
